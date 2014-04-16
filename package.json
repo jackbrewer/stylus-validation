@@ -1,6 +1,6 @@
 {
   "name": "stylus-validation",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A set of Stylus mixins for validating types of content",
   "main": "lib/stylus-validation.js",
   "author": "Jack Brewer",
