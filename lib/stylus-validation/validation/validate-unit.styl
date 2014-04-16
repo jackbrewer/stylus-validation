@@ -1,0 +1,71 @@
+//
+// VALIDATE UNIT
+// =============
+//
+
+
+//
+// DEFINE UNIT TYPES
+// http://www.w3.org/TR/css3-values/
+//
+
+$units = {}
+$units.relative   = 'em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin'
+$units.absolute   = 'cm' 'mm' 'in' 'pt' 'pc' 'px'
+$units.angle      = 'deg' 'grad' 'rad' 'turn'
+$units.time       = 's' 'ms'
+$units.frequency  = 'Hz' 'kHz'
+$units.resolution = 'dpi' 'dpcm' 'dppx' 'x'
+$units.percentage = '%'
+
+// Create a 'length' type which combines relative and absolute types.
+// Due to Stylus bug/feature, creating a list needs all these steps.
+$units.length = ''
+for prop, i in $units.relative
+  if i == 1
+    $units.length[0] = prop
+  else
+    push($units.length, prop)
+for prop in $units.absolute
+  push($units.length, prop)
+
+
+//
+// VALIDATE UNIT
+// This mixin can be called directly, and is called by all other unit mixins
+//
+
+validate-unit($test, $expected, $unitless = false)
+
+  $expectedArr = ()
+
+  //
+  // Format the expected units we are testing against
+  //
+
+  for $case in $expected
+
+    // Check if any passed values match unit groups rather than single unit types.
+    // If so, replace the group name with the values of that group.
+    if $case in keys($units)
+      for $prop in $units[$case]
+        push($expectedArr, $prop)
+    else
+      push($expectedArr, $case)
+
+  //
+  // Check the test values supplied against the expected units
+  //
+
+  if typeof($test) == 'unit'
+
+    if ($expected == 'unit')
+      return true
+
+    if unit($test) == '' && $unitless == true
+      return true
+
+    if unit($test) != '' && unit($test) in $expectedArr
+      return true
+
+  error('Expected ' + $expectedArr + ', got ' + -string($test))

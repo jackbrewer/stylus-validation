@@ -1,0 +1,56 @@
+// @describe validate-color()
+
+// @it Validate #RRGGBB(AA) colors
+validate-color(#0) is true
+validate-color(#00) is true
+validate-color(#000) is true
+validate-color(#0000) is true
+validate-color(#000000) is true
+validate-color(#00000000) is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate RGB(A) colors
+validate-color(rgb(0, 0, 0)) is true
+validate-color(rgba(0, 0, 0, 0)) is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate HSL(A) colors
+validate-color(hsl(0deg, 0%, 0%)) is true
+validate-color(hsla(0deg, 0%, 0%, 0)) is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate named keywords
+validate-color(cyan) is true
+validate-color(magenta) is true
+validate-color(yellow) is true
+validate-color(black) is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate transparent keyword
+validate-color(transparent) is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}

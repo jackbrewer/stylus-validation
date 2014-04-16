@@ -1,0 +1,17 @@
+{
+  "name": "stylus-validation",
+  "version": "0.0.0",
+  "description": "A set of Stylus mixins for validating types of content",
+  "main": "lib/stylus-validation.js",
+  "author": "Jack Brewer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:jackbrewer/stylus-validation.git"
+  },
+  "scripts": {
+    "test": "node test/test-runner.js"
+  },
+  "devDependencies": {
+    "stylus-test-runner": "~0.1.0"
+  }
+}

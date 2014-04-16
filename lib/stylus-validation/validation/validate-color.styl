@@ -1,0 +1,15 @@
+//
+// VALIDATE COLOR
+// ==============
+//
+
+
+validate-color($test)
+
+  if type($test) == 'rgba' || type($test) == 'hsla'
+    return true
+
+  if type($test) == 'ident' && $test == transparent
+    return true
+
+  error('RGB or HSL value expected, got a ' + -string($test))

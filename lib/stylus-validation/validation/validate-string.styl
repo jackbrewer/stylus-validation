@@ -1,0 +1,15 @@
+//
+// VALIDATE STRING
+// ===============
+//
+
+
+validate-string($test, $allow-ident = false)
+
+  if typeof($test) == 'string'
+    return true
+
+  if typeof($test) == 'ident' && $allow-ident == true
+    return true
+
+  error('Expected string, got ' + -string($test))

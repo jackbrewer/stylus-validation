@@ -1,0 +1,28 @@
+// @describe validate-string()
+
+// @it Validate standard string
+validate-string('test') is true
+.element
+  top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate concatinated string
+validate-string('test with' + ' concatination') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate ident instead of string when $allow-ident == true
+validate-string(test, true) is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}

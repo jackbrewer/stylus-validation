@@ -1,0 +1,200 @@
+// @describe validate-unit()
+
+// @it Validate 'unit' keyword
+validate-unit(10px, 'unit') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'length' keyword
+validate-unit(10px, 'length') is true
+.element
+  top 0
+// @expect:error()
+.element {
+  top: 0;
+}
+
+// @it Validate 'length' keyword
+validate-unit(10px, 'length') is true
+.element
+  top 0
+// @expect:error()
+.element {
+  top: 0;
+}
+
+// @it Validate 'relative' keyword
+validate-unit(10em, 'relative') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'relative' units: 'em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin'
+validate-unit(10em, 'em') is true
+validate-unit(10ex, 'ex') is true
+validate-unit(10ch, 'ch') is true
+validate-unit(10rem, 'rem') is true
+validate-unit(10vw, 'vw') is true
+validate-unit(10vh, 'vh') is true
+validate-unit(10vmin, 'vmin') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'absolute' keyword
+validate-unit(10px, 'absolute') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'absolute' units: 'cm' 'mm' 'in' 'pt' 'pc' 'px'
+validate-unit(10cm, 'cm') is true
+validate-unit(10mm, 'mm') is true
+validate-unit(10in, 'in') is true
+validate-unit(10pt, 'pt') is true
+validate-unit(10pc, 'pc') is true
+validate-unit(10px, 'px') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'angle' keyword
+validate-unit(10deg, 'angle') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'angle' units: 'deg' 'grad' 'rad' 'turn'
+validate-unit(10deg, 'deg') is true
+validate-unit(10grad, 'grad') is true
+validate-unit(10rad, 'rad') is true
+validate-unit(10turn, 'turn') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'time' keyword
+validate-unit(10s, 'time') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'time' units: 's' 'ms'
+validate-unit(10s, 's') is true
+validate-unit(10ms, 'ms') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'frequency' keyword
+validate-unit(10Hz, 'frequency') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'frequency' units: 'Hz' 'kHz'
+validate-unit(10Hz, 'Hz') is true
+validate-unit(10kHz, 'kHz') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'resolution' keyword
+validate-unit(10dpi, 'resolution') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'resolution' units: 'dpi' 'dpcm' 'dppx' 'x'
+validate-unit(10dpi, 'dpi') is true
+validate-unit(10dpcm, 'dpcm') is true
+validate-unit(10dppx, 'dppx') is true
+validate-unit(10x, 'x') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'percentage' keyword
+validate-unit(10%, 'percentage') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate 'percentage' units: '%'
+validate-unit(10%, '%') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate against multiple unit types ('px' 'em' '%')
+validate-unit(12px, 'px' 'em' '%') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate against multiple keywords ('absolute' 'frequency' 'percentage')
+validate-unit(12%, 'absolute' 'frequency' 'percentage') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}
+
+// @it Validate against mixed units and keywords ('absolute' 'em' 'frequency' 'dpi')
+validate-unit(12px, 'absolute' 'em' 'frequency' 'dpi') is true
+.element
+    top 0
+// @expect
+.element {
+  top: 0;
+}

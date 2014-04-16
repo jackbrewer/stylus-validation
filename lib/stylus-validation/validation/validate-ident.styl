@@ -1,0 +1,12 @@
+//
+// VALIDATE IDENT
+// ===============
+//
+
+
+validate-ident($test)
+
+  if typeof($test) == 'ident'
+    return true
+
+  error('Expected string, got ' + -string($test))
