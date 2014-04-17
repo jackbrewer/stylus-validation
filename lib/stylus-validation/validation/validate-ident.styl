@@ -7,6 +7,7 @@
 validate-ident($test)
 
   if typeof($test) == 'ident'
-    return true
+    return
 
-  error('Expected string, got ' + -string($test))
+  else
+    error('Expected ident, got ' + -string($test))

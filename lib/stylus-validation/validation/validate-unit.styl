@@ -57,15 +57,14 @@ validate-unit($test, $expected, $unitless = false)
   // Check the test values supplied against the expected units
   //
 
-  if typeof($test) == 'unit'
+  if typeof($test) == 'unit' && ($expected == 'unit')
+    return true
 
-    if ($expected == 'unit')
-      return true
+  else if unit($test) == '' && $unitless == true
+    return true
 
-    if unit($test) == '' && $unitless == true
-      return true
+  else if unit($test) != '' && unit($test) in $expectedArr
+    return true
 
-    if unit($test) != '' && unit($test) in $expectedArr
-      return true
-
-  error('Expected ' + $expectedArr + ', got ' + -string($test))
+  else
+    error('Expected ' + $expectedArr + ', got ' + -string($test))
