@@ -1,6 +1,19 @@
 // @describe validate-ident()
 
-// @it Validate standard ident
-validate-ident(hello) is true
+// @it Validate ident
+validate-ident(hello)
 // @expect
 
+
+
+// @it Error if passed a string
+validate-ident('hello') is true
+// @throws
+
+// @it Error if passed a number
+validate-ident(123) is true
+// @throws
+
+// @it Error if passed a unit
+validate-ident(12px) is true
+// @throws

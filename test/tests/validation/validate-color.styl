@@ -1,31 +1,45 @@
 // @describe validate-color()
 
 // @it Validate #RRGGBB(AA) colors
-validate-color(#0) is true
-validate-color(#00) is true
-validate-color(#000) is true
-validate-color(#0000) is true
-validate-color(#000000) is true
-validate-color(#00000000) is true
+validate-color(#0)
+validate-color(#00)
+validate-color(#000)
+validate-color(#0000)
+validate-color(#000000)
+validate-color(#00000000)
 // @expect
 
 // @it Validate RGB(A) colors
-validate-color(rgb(0, 0, 0)) is true
-validate-color(rgba(0, 0, 0, 0)) is true
+validate-color(rgb(0, 0, 0))
+validate-color(rgba(0, 0, 0, 0))
 // @expect
 
 // @it Validate HSL(A) colors
-validate-color(hsl(0deg, 0%, 0%)) is true
-validate-color(hsla(0deg, 0%, 0%, 0)) is true
+validate-color(hsl(0deg, 0%, 0%))
+validate-color(hsla(0deg, 0%, 0%, 0))
 // @expect
 
-// @it Validate named keywords
-validate-color(cyan) is true
-validate-color(magenta) is true
-validate-color(yellow) is true
-validate-color(black) is true
+// @it Validate named keywords as idents
+validate-color(cyan)
+validate-color(magenta)
+validate-color(yellow)
+validate-color(black)
 // @expect
 
-// @it Validate transparent keyword
-validate-color(transparent) is true
+// @it Validate transparent keyword as an ident
+validate-color(transparent)
 // @expect
+
+
+
+// @it Error if passed a string
+validate-color('string')
+// @throws
+
+// @it Error if passed a unit
+validate-color(10px)
+// @throws
+
+// @it Error if passed an ident which doesn't match a color
+validate-color(notacolor)
+// @throws

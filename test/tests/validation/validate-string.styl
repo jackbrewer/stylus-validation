@@ -1,13 +1,26 @@
 // @describe validate-string()
 
-// @it Validate standard string
-validate-string('test') is true
+// @it Validate string
+validate-string('test')
 // @expect
 
-// @it Validate concatinated string
-validate-string('test with' + ' concatination') is true
+// @it Validate concatinated strings
+validate-string('test with' + ' concatination')
+// @expect
+
+// @it Validate concatinated mixed types which equaate to a string
+validate-string('test with' + 3 + mixed types)
 // @expect
 
 // @it Validate ident instead of string when $allow-ident == true
-validate-string(test, true) is true
+validate-string(test, true)
 // @expect
+
+
+// @it Error if passed an ident when $allow-ident != true
+validate-string(test)
+// @throws
+
+// @it Error if passed a unit
+validate-string(10px)
+// @throws
