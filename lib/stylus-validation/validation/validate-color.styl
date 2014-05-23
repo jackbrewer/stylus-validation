@@ -7,10 +7,10 @@
 validate-color($test)
 
   if type($test) == 'rgba' || type($test) == 'hsla'
-    return
+    p()
 
   else if type($test) == 'ident' && $test == transparent
-    return
+    p()
 
   else
     error('Expected a color, got a ' + -string($test))

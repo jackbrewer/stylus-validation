@@ -7,10 +7,10 @@
 validate-string($test, $allow-ident = false)
 
   if typeof($test) == 'string'
-    return
+    p()
 
   else if typeof($test) == 'ident' && $allow-ident == true
-    return
+    p()
 
   else
     error('Expected string, got ' + -string($test))

@@ -58,13 +58,13 @@ validate-unit($test, $expected, $unitless = false)
   //
 
   if typeof($test) == 'unit' && ($expected == 'unit')
-    return true
+    p()
 
   else if unit($test) == '' && $unitless == true
-    return true
+    p()
 
   else if unit($test) != '' && unit($test) in $expectedArr
-    return true
+    p()
 
   else
     error('Expected ' + $expectedArr + ', got ' + -string($test))
