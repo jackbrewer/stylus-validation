@@ -1,0 +1,13 @@
+//
+// VALIDATE INTEGER
+// ================
+//
+
+
+validate-int($test)
+
+  if typeof($test) == 'unit' && unit($test) == ''
+    p()
+
+  else
+    error('Expected integer, got ' + -string($test))

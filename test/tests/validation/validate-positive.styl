@@ -1,0 +1,26 @@
+// @describe validate-positive()
+
+// @it Validate positive integer
+validate-positive(20)
+// @expect
+
+// @it Validate positive unit
+validate-positive(20px)
+// @expect
+
+
+// @it Error if passed a negative number
+validate-positive(-20)
+// @throws
+
+// @it Error if passed zero
+validate-positive(0)
+// @throws
+
+// @it Error if passed a string
+validate-positive('string')
+// @throws
+
+// @it Error if passed an ident
+validate-positive(ident)
+// @throws

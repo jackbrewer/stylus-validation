@@ -1,0 +1,18 @@
+// @describe validate-int()
+
+// @it Validate unitless integer
+validate-int(20)
+// @expect
+
+
+// @it Error if passed a string
+validate-int('string')
+// @throws
+
+// @it Error if passed a unit
+validate-int(20px)
+// @throws
+
+// @it Error if passed an ident
+validate-int(ident)
+// @throws

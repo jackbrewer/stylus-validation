@@ -1,0 +1,13 @@
+//
+// VALIDATE POSITIVE
+// =================
+//
+
+
+validate-positive($test)
+
+  if typeof($test) == 'unit' && $test > 0
+    p()
+
+  else
+    error('Expected positive int/unit, got ' + -string($test))
